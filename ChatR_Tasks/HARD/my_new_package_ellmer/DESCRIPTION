@@ -1,0 +1,10 @@
+Package: mypackage_ellmer
+Type: Package
+Title: Exported Functions Extractor using ellmer + llama3.2
+Version: 0.0.1
+Authors@R: person("Mohammad","Kazimuddin", email = "kazeemalam@gmail.com", role = c("aut", "cre"))
+Description: A toy package that uses ellmer and llama3.2 to return exported functions from R packages.
+License: MIT
+Encoding: UTF-8
+LazyData: true
+Imports: ellmer

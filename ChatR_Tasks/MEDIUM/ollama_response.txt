@@ -1,0 +1,11 @@
+Here are 2 points each, why `importFrom()` is generally preferred over `import()` in large packages:
+
+**`import()`**
+
+1. Manual imports lead to a cluttered namespace which can be difficult to manage when working on large projects.
+2. Automatic loading of unnecessary items can slow down the package build process.
+
+**`importFrom()`**
+
+1. Importing only specific modules makes it easier for users to selectively import functions or variables, improving code readability and usability.
+2. `importFrom()` reduces namespace pollution by avoiding automatic imports, making it easier to reproduce builds with fewer dependencies.

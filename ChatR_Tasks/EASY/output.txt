@@ -1,0 +1,56 @@
+In an R package, imports and exports are used to manage the relationships between packages, modules, and functions. Here's a breakdown of how to specify them:
+
+**Imports**
+
+In R, you can import functions or variables from another package using the `::` operator. This is called "importing" and it allows you to use the imported items in your own code.
+
+To import something from another package, add the following line at the top of your R file:
+```r
+library(package_name)
+```
+For example, to import the `mean()` function from the base R package, you would write:
+```r
+library(base)
+```
+Then, you can use the `mean()` function in your code without qualifying it with the package name.
+
+**Exports**
+
+To export a function or variable from an R package, you need to add it to the list of exports specified in the `PKGNAME` file (usually named `DESCRIPTION.r`) under the "Exports" section. The format is:
+```r
+export(name = "function_or_variable")
+```
+For example, if you have a function called `my_func()` that you want to export from your package, you would add the following line to the `DESCRIPTION.r` file:
+```r
+export(name = "my_func")
+```
+This makes `my_func()` available for use in other packages that import yours.
+
+**Specifying dependencies**
+
+To specify the dependencies required by an R package, you can use the `Depends` field in the `DESCRIPTION.r` file. For example:
+```r
+Depends: rstats,
+    rutils
+```
+This indicates that your package depends on both the base R package (`rstats`) and the `rutils` package.
+
+**Specifying exports**
+
+To specify which functions or variables to export from an R package, you can use the `Exports` field in the `DESCRIPTION.r` file. For example:
+```r
+Expose = function1,
+        function2,
+```
+This specifies that the `function1()` and `function2()` functions should be exported from your package.
+
+**Best practices**
+
+Here are some best practices to keep in mind when specifying imports and exports:
+
+* Use meaningful names for your exports, as they will appear in other packages' documentation.
+* Avoid exporting internal or private functions that should not be accessed directly by users of your package.
+* Use the `@rdtags` tag to specify tags that describe your package and its contents. This helps users find information about your package when searching on CRAN.
+
+By following these guidelines, you can ensure that your R package is well-organized, easy to use, and maintainable over time.
+
